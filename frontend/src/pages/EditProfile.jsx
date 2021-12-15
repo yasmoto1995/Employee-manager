@@ -10,7 +10,7 @@ const EditProfile = () => {
                 <Heading title="Edit Profile" className="text-start mx-5 mt-5"/>
                 <div class="text-center m-3 profile">
                     <img class="profile-img" src="https://www.w3schools.com/howto/img_avatar.png" alt="" />
-                    <div type="button" class="edit-profile-img align-middle text-center my-auto"><i class="fa fa-edit"></i></div>
+                    <div type="button" class="edit-profile-img align-middle text-center my-auto">✒️</div>
                 </div>
                 <div class="mx-5">
                     <form class="row" action="POST">
@@ -32,8 +32,8 @@ const EditProfile = () => {
                         <Input type="text" name="password" label="Password" placeholder="Password" groupClassName="col mt-3" labelClassName="ms-3 mb-3" inputClassName="rounded border-0 shadow-sm" />
                     </form>
                 </div>
-                <div class="row justify-content-center mt-3">
-                    <Button className="mr-3" name="Save" />
+                <div class="row justify-content-center mt-3 mb-5">
+                    <Button className="px-3" name="Save" />
                 </div>
             </div>
         </>

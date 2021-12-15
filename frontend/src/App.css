@@ -1,7 +1,8 @@
-.navbar{
-  margin: 1rem;
-  padding-left: 70%;
-  
+.nav{
+  background-color: #0d6efd;
+}
+.nav-link {
+  color: #fff !important;
 }
 .profile-img{
   border:0;
@@ -10,7 +11,7 @@
   border-radius: 50%;
 }
 .btn{
-  width: fit-content;
+  width: fit-content !important;
   letter-spacing: .1em;
   border-radius: 1em;
 }
@@ -20,7 +21,8 @@
 .edit-profile-img{
   position: absolute;
   top: 90%;
-  left: 40vh;
+  left: 52%;
+  transform: translate(-50%,-50%);
   font-size: 14px;
   border-radius: 50%;
   border: 0;
@@ -29,4 +31,8 @@
   height: 25px !important;
   background-color: #0d6efd;
   color: white;
+}
+
+.heading {
+  color: #0d6efd;
 }
