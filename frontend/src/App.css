@@ -1,0 +1,32 @@
+.navbar{
+  margin: 1rem;
+  padding-left: 70%;
+  
+}
+.profile-img{
+  border:0;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.btn{
+  width: fit-content;
+  letter-spacing: .1em;
+  border-radius: 1em;
+}
+.profile{
+  position: relative;
+}
+.edit-profile-img{
+  position: absolute;
+  top: 90%;
+  left: 40vh;
+  font-size: 14px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  width: 25px !important;
+  height: 25px !important;
+  background-color: #0d6efd;
+  color: white;
+}
