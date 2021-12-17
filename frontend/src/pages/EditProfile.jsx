@@ -23,6 +23,9 @@ const EditProfile = () => {
                         <div class="w-100"></div>
                         <Input type="text" name="address" label="Address" placeholder="Address" groupClassName="col mt-3" labelClassName="ms-3 mb-3" inputClassName="rounded border-0 shadow-sm" />
                         <div class="w-100"></div>
+                        <Input type="text" name="Department" label="Department" placeholder="Department" groupClassName="col mt-3" labelClassName="ms-3 mb-3" inputClassName="rounded border-0 shadow-sm" />
+                        <Input type="text" name="Role" label="Role" placeholder="Role" groupClassName="col mt-3" labelClassName="ms-3 mb-3" inputClassName="rounded border-0 shadow-sm" />
+                        <div class="w-100"></div>
                         <Input type="text" name="city" label="City" placeholder="City" groupClassName="col mt-3" labelClassName="ms-3 mb-3" inputClassName="rounded border-0 shadow-sm" />
                         <Input type="text" name="state" label="State" placeholder="State" groupClassName="col mt-3" labelClassName="ms-3 mb-3" inputClassName="rounded border-0 shadow-sm" />
                         <div class="w-100"></div>
