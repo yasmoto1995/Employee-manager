@@ -14,6 +14,7 @@ const Input = (props) => {
                     onBlur={props.handleBlur}
                     required={props.required}
                     disabled={props.disabled}
+                    autoComplete={props.autoComplete}
                     autoFocus={props.autofocus}
             />
         </div>

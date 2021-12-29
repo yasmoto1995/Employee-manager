@@ -18,6 +18,11 @@ const AddPage = () => {
     const [country, setCountry] = useState('');
     const [pass, setPass] = useState('');
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const employee = { firstName, lastName, email, contact, address, dept, role, city, state, zip, country, pass }
+    }
+
     return (
         <>
             <div className="container">
@@ -27,26 +32,26 @@ const AddPage = () => {
                     <div type="button" class="addpage-img align-middle text-center">✒️</div>
                 </div>
                 <div className="mx-5">
-                    <form className="row" action="POST">
-                        <Input type="text" name="fname" label="First Name" placeholder="First Name" groupClassName="col mt-3" value={firstName}  onChange={(e) => setFirstName(e.target.value)} autofocus />
-                        <Input type="text" name="lname" label="Last Name" placeholder="Last Name" groupClassName="col mt-3" value={lastName} onChange={(e) => setLastName(e.target.value)}  />
+                    <form className="row" onSubmit={handleSubmit} method="POST">
+                        <Input type="text" name="fname" label="First Name" placeholder="First Name" groupClassName="col mt-3" value={firstName}  onChange={(e) => setFirstName(e.target.value)} autoComplete="off" autofocus />
+                        <Input type="text" name="lname" label="Last Name" placeholder="Last Name" groupClassName="col mt-3" value={lastName} onChange={(e) => setLastName(e.target.value)} autoComplete="off"  />
                         <div class="w-100"></div>
-                        <Input type="email" name="email" label="Email" placeholder="Email Address" groupClassName="col mt-3" value={email} onChange={(e) => setEmail(e.target.value)}  />
+                        <Input type="email" name="email" label="Email" placeholder="Email Address" groupClassName="col mt-3" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="off"  />
                         <div class="w-100"></div>
-                        <Input type="text" name="number" label="Contact Number" placeholder="Contact Number" groupClassName="col mt-3" value={contact} onChange={(e) => setContact(e.target.value)}  />
+                        <Input type="text" name="number" label="Contact Number" placeholder="Contact Number" groupClassName="col mt-3" value={contact} onChange={(e) => setContact(e.target.value)} autoComplete="off"  />
                         <div class="w-100"></div>
-                        <Input type="text" name="address" label="Address" placeholder="Address" groupClassName="col mt-3" value={address} onChange={(e) => setAddress(e.target.value)}   />
+                        <Input type="text" name="address" label="Address" placeholder="Address" groupClassName="col mt-3" value={address} onChange={(e) => setAddress(e.target.value)} autoComplete="off"   />
                         <div class="w-100"></div>
-                        <Input type="text" name="Department" label="Department" placeholder="Department" groupClassName="col mt-3" value={dept} onChange={(e) => setDepartment(e.target.value)}  />
-                        <Input type="text" name="Role" label="Role" placeholder="Role" groupClassName="col mt-3" value={role} onChange={(e) => setRole(e.target.value)}   />
+                        <Input type="text" name="Department" label="Department" placeholder="Department" groupClassName="col mt-3" value={dept} onChange={(e) => setDepartment(e.target.value)} autoComplete="off"  />
+                        <Input type="text" name="Role" label="Role" placeholder="Role" groupClassName="col mt-3" value={role} onChange={(e) => setRole(e.target.value)} autoComplete="off"   />
                         <div class="w-100"></div>
-                        <Input type="text" name="city" label="City" placeholder="City" groupClassName="col mt-3" value={city} onChange={(e) => setCity(e.target.value)}  />
-                        <Input type="text" name="state" label="State" placeholder="State" groupClassName="col mt-3" value={state} onChange={(e) => setState(e.target.value)}   />
+                        <Input type="text" name="city" label="City" placeholder="City" groupClassName="col mt-3" value={city} onChange={(e) => setCity(e.target.value)} autoComplete="off"  />
+                        <Input type="text" name="state" label="State" placeholder="State" groupClassName="col mt-3" value={state} onChange={(e) => setState(e.target.value)} autoComplete="off"   />
                         <div class="w-100"></div>
-                        <Input type="text" name="pin" label="Zip code" placeholder="Zip code" groupClassName="col mt-3" value={zip} onChange={(e) => setZip(e.target.value)}   />
-                        <Input type="text" name="country" label="Country" placeholder="Country" groupClassName="col mt-3" value={country} onChange={(e) => setCountry(e.target.value)}   />
+                        <Input type="text" name="pin" label="Zip code" placeholder="Zip code" groupClassName="col mt-3" value={zip} onChange={(e) => setZip(e.target.value)} autoComplete="off"   />
+                        <Input type="text" name="country" label="Country" placeholder="Country" groupClassName="col mt-3" value={country} onChange={(e) => setCountry(e.target.value)} autoComplete="off"   />
                         <div class="w-100"></div>
-                        <Input type="text" name="password" label="Password" placeholder="Password" groupClassName="col mt-3" value={pass} onChange={(e) => setPass(e.target.value)}  />
+                        <Input type="text" name="password" label="Password" placeholder="Password" groupClassName="col mt-3" value={pass} onChange={(e) => setPass(e.target.value)} autoComplete="off"  />
                     </form>
                 </div>
                 
