@@ -10,10 +10,11 @@ const Input = (props) => {
                     type={props.type}
                     placeholder={props.placeholder}
                     value={props.value}
-                    onChange={props.handleChange}
+                    onChange={props.onChange}
                     onBlur={props.handleBlur}
                     required={props.required}
                     disabled={props.disabled}
+                    autoFocus={props.autofocus}
             />
         </div>
     );
