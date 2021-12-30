@@ -20,7 +20,30 @@ const AddPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const employee = { firstName, lastName, email, contact, address, dept, role, city, state, zip, country, pass }
+        const employee = { 
+            firstName: firstName, 
+            lastName: lastName, 
+            email: email, 
+            contact: contact, 
+            address: address, 
+            dept: dept, 
+            role: role, 
+            city: city, 
+            state: state, 
+            zip: zip, 
+            country: country, 
+            pass: pass 
+        }
+
+        fetch('http://localhost:7000/add', {
+            method: 'POST',
+            headers:{'content-type': 'application/json'},
+            body: JSON.stringify(employee),
+        })
+        .then(response => console.log('Success: ', response))
+        .catch(error => {
+            console.error('There has been a problem with fetch operation:', error);
+        });
     }
 
     return (
@@ -56,7 +79,7 @@ const AddPage = () => {
                 </div>
                 
                 <div class="row justify-content-center mt-3 mb-3 ">
-                    <Button className="px-3" name="Save" />   
+                    <Button className="px-3" name="Save" onClick={handleSubmit} />   
                 </div>
                 <div class="row justify-content-center mt-3 mb-3">
                 <Button className="px-3" name="Exit" />
