@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Heading from "../components/Heading";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { EmployeeSuccessful, EmployeeExists, EmployeeError } from "../components/Toast";
 
 const AddPage = () => {
 
@@ -40,8 +41,24 @@ const AddPage = () => {
             headers:{'content-type': 'application/json'},
             body: JSON.stringify(employee),
         })
-        .then(response => console.log('Success: ', response))
+        .then(response => {
+            setFirstName('')
+            setLastName('')
+            setEmail('')
+            setContact('')
+            setAddress('')
+            setDepartment('')
+            setRole('')
+            setCity('')
+            setState('')
+            setZip('')
+            setCountry('')
+            setPass('')
+
+            EmployeeSuccessful();
+        })
         .catch(error => {
+            EmployeeError();
             console.error('There has been a problem with fetch operation:', error);
         });
     }
