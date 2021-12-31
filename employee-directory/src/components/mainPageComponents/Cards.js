@@ -1,5 +1,5 @@
 import "./Cards.css";
-import DetailsModal from "../components/DetailsModal";
+import DetailsModal from "./DetailsModal";
 
 const Cards = (props) => {
   return (

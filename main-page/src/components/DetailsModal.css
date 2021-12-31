@@ -1,0 +1,29 @@
+.view-image {
+  width: 30px;
+  height: 30px;
+}
+
+.modal-btn {
+  border: none;
+  position: absolute;
+}
+
+.modal-img {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+.modal-body {
+  display: flex;
+}
+
+.modal-body h5 {
+  margin-top: 5px;
+}
+
+.info-div {
+  border-radius: 10px;
+  margin-left: 20px;
+  background: #f6f6fb;
+}
