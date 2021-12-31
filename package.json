@@ -1,0 +1,22 @@
+{
+  "name": "employee-management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harshal0512/Employee-Management.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harshal0512/Employee-Management/issues"
+  },
+  "homepage": "https://github.com/Harshal0512/Employee-Management#readme",
+  "dependencies": {
+    "touch": "^3.1.0"
+  }
+}
