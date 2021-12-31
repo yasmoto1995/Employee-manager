@@ -1,11 +1,14 @@
 import React from "react";
-import Heading from "../components/Heading";
-import Input from "../components/Input";
-import Button from "../components/Button";
+import "./editPage.css";
+import Heading from "../../components/editPageComponents/Heading";
+import Input from "../../components/editPageComponents/Input";
+import Button from "../../components/editPageComponents/Button";
+import Navbar from "../../components/editPageComponents/Navbar";
 
 const EditProfile = () => {
   return (
     <>
+      <Navbar></Navbar>
       <div class="container">
         <Heading title="Edit Profile" className="text-start mx-5 mt-5" />
         <div class="text-center m-3 profile">

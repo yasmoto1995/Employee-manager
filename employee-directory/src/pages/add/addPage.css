@@ -1,0 +1,64 @@
+.nav {
+  background-color: #0d6efd;
+}
+.nav-link {
+  color: #fff !important;
+}
+
+.profile-img-add {
+  border: 0;
+  height: 260px;
+  width: 260px;
+  border-radius: 50%;
+  position: relative;
+  top: 40px;
+  right: 70px;
+}
+.btn {
+  position: relative;
+  right: 680px;
+  bottom: 230px;
+  width: 275px !important;
+  height: 50px;
+  letter-spacing: 0.1em;
+}
+.profile {
+  position: relative;
+}
+.addpage-img {
+  position: relative;
+  top: 90%;
+  left: 168px;
+  transform: translate(-50%, -50%);
+  font-size: 23px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  width: 35px !important;
+  height: 35px !important;
+  background-color: #0d6efd;
+  color: white;
+}
+
+.heading {
+  position: relative;
+  right: 95px;
+  top: 5px;
+  color: #0d6efd;
+}
+
+.row {
+  position: relative;
+  bottom: 365px;
+  left: 270px;
+  width: 1000px;
+}
+.row input {
+  border-radius: 90px;
+  background-color: #dedee6;
+  border: #f6f6fb;
+}
+.row label {
+  color: #0d6efd;
+  font-weight: bold;
+}

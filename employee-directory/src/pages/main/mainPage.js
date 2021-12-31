@@ -1,11 +1,10 @@
-import Cards from "../components/Cards";
-import Navbar from "../components/Navbar";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./mainPage.css";
-import { Col, Container, Row } from "react-bootstrap";
-import SortBar from "../components/SortBar";
-import data from "../components/data";
 import { useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import SortBar from "../../components/mainPageComponents/SortBar";
+import data from "../../components/mainPageComponents/data";
+import Cards from "../../components/mainPageComponents/Cards";
+import Navbar from "../../components/mainPageComponents/Navbar";
 
 const filteredData = function (type) {
   if (type === "Everyone") {
@@ -16,7 +15,7 @@ const filteredData = function (type) {
 };
 
 const Main = () => {
-  const [updatedData, setData] = useState(filteredData("Everyone"));
+  const [updatedData, setData] = useState(filteredData("Manager"));
   // console.log(filteredData("Partner"));
   // console.log(filteredData("Manager"));
   // console.log(filteredData("Team"));
@@ -36,7 +35,6 @@ const Main = () => {
           ))}
         </Row>
       </Container>
-      <button onClick={setData}>Team</button>
     </div>
   );
 };

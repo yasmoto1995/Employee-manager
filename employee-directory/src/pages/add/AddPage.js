@@ -1,23 +1,22 @@
 import React from "react";
-import Heading from "../components/Heading";
-import Input from "../components/Input";
-import Button from "../components/Button";
+import Heading from "../../components/addPageComponents/Heading";
+import Input from "../../components/addPageComponents/Input";
+import Button from "../../components/addPageComponents/Button";
+import Navbar from "../../components/addPageComponents/Navbar";
 
-const EditProfile = () => {
+const AddPage = () => {
   return (
     <>
       <div class="container">
-        <Heading title="Edit Profile" className="text-start mx-5 mt-5" />
-        <div class="text-center m-3 profile">
+        <Navbar></Navbar>
+        <Heading title="Add Employee" className="text-start mx-5 mt-5" />
+        <div class="text-left m-3 profile">
           <img
-            class="profile-img"
+            class="profile-img-add"
             src="https://www.w3schools.com/howto/img_avatar.png"
             alt=""
           />
-          <div
-            type="button"
-            class="edit-profile-img align-middle text-center my-auto"
-          >
+          <div type="button" class="addpage-img align-middle text-center">
             ✒️
           </div>
         </div>
@@ -29,8 +28,6 @@ const EditProfile = () => {
               label="First Name"
               placeholder="First Name"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <Input
               type="text"
@@ -38,8 +35,6 @@ const EditProfile = () => {
               label="Last Name"
               placeholder="Last Name"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <div class="w-100"></div>
             <Input
@@ -48,8 +43,6 @@ const EditProfile = () => {
               label="Email"
               placeholder="Email Address"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <div class="w-100"></div>
             <Input
@@ -58,8 +51,6 @@ const EditProfile = () => {
               label="Contact Number"
               placeholder="Contact Number"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <div class="w-100"></div>
             <Input
@@ -68,8 +59,6 @@ const EditProfile = () => {
               label="Address"
               placeholder="Address"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <div class="w-100"></div>
             <Input
@@ -78,8 +67,6 @@ const EditProfile = () => {
               label="Department"
               placeholder="Department"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <Input
               type="text"
@@ -87,8 +74,6 @@ const EditProfile = () => {
               label="Role"
               placeholder="Role"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <div class="w-100"></div>
             <Input
@@ -97,8 +82,6 @@ const EditProfile = () => {
               label="City"
               placeholder="City"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <Input
               type="text"
@@ -106,8 +89,6 @@ const EditProfile = () => {
               label="State"
               placeholder="State"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <div class="w-100"></div>
             <Input
@@ -116,8 +97,6 @@ const EditProfile = () => {
               label="Zip code"
               placeholder="Zip code"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <Input
               type="text"
@@ -125,8 +104,6 @@ const EditProfile = () => {
               label="Country"
               placeholder="Country"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
             <div class="w-100"></div>
             <Input
@@ -135,17 +112,19 @@ const EditProfile = () => {
               label="Password"
               placeholder="Password"
               groupClassName="col mt-3"
-              labelClassName="ms-3 mb-3"
-              inputClassName="rounded border-0 shadow-sm"
             />
           </form>
         </div>
-        <div class="row justify-content-center mt-3 mb-5">
+
+        <div class="row justify-content-center mt-3 mb-3 ">
           <Button className="px-3" name="Save" />
+        </div>
+        <div class="row justify-content-center mt-3 mb-3">
+          <Button className="px-3" name="Exit" />
         </div>
       </div>
     </>
   );
 };
 
-export default EditProfile;
+export default AddPage;
