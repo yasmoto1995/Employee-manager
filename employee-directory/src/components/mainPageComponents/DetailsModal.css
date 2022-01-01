@@ -9,7 +9,6 @@
 }
 
 .modal-img {
-  border-radius: 50%;
   height: 200px;
   width: 200px;
 }
@@ -26,4 +25,15 @@
   border-radius: 10px;
   margin-left: 20px;
   background: #f6f6fb;
+}
+
+@media screen and (max-width: 760px) {
+  .info-div {
+    margin-left: 0px;
+  }
+
+  .modal-body,
+  .info-div {
+    max-width: 100%;
+  }
 }

@@ -21,8 +21,12 @@ const Main = () => {
   const [updatedData, setData] = useState(filteredData("Everyone"));
 
   const paginationHandlers = (range) => {
-    console.log(updatedData);
+    setData(updatedData.slice(range[0], range[1]));
     // setData(updatedData[(range[0], range[1])]);
+  };
+
+  const searchHandler = (upD) => {
+    setData(upD);
   };
 
   const sortHandlers = (event) => {
@@ -37,12 +41,14 @@ const Main = () => {
           nums={updatedData.length}
           sortFnc={sortHandlers}
           pagFnc={paginationHandlers}
+          searchFnc={searchHandler}
+          data={data}
         ></SortBar>
       </Container>
       <Container fluid>
-        <Row>
+        <Row className="card-container">
           {updatedData.map((a) => (
-            <Col key={a.id}>
+            <Col key={a.id} className="cards">
               <Cards data={a}></Cards>
             </Col>
           ))}

@@ -1,9 +1,15 @@
 import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import { useState } from "react";
 import "./DetailsModal.css";
+import { useNavigate } from "react-router-dom";
 
 const DetailsModal = (props) => {
   const [show, setShow] = useState(false);
+
+  const navigate = useNavigate();
+  const editHandler = function () {
+    navigate("/edit", { state: props.data });
+  };
 
   return (
     <>
@@ -19,12 +25,11 @@ const DetailsModal = (props) => {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
-            {`${props.data.firstName} ${props.data.lastName}`}
+            <img src={props.data.src} alt="profile-img" className="modal-img" />
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="modal-body poppins">
-            <img src={props.data.src} alt="profile-img" className="modal-img" />
             <div className="info-div">
               <Container fluid>
                 <Row>
@@ -49,7 +54,9 @@ const DetailsModal = (props) => {
                   <Col>
                     <h5>
                       Email:
-                      <span className="text-primary">{props.data.email}</span>
+                      <span className="text-primary">
+                        {" " + props.data.email}
+                      </span>
                     </h5>
                   </Col>
                 </Row>
@@ -65,9 +72,7 @@ const DetailsModal = (props) => {
                   <Col>
                     <h5>
                       Contact Number:
-                      <span className="text-primary">
-                        {props.data.contactNumber}
-                      </span>
+                      <span className="text-primary">{props.data.contact}</span>
                     </h5>
                   </Col>
                 </Row>
@@ -76,6 +81,13 @@ const DetailsModal = (props) => {
                     Address:
                     <span className="text-primary">{props.data.address}</span>
                   </h5>
+                </Row>
+                <Row>
+                  <Col>
+                    <button className="btn btn-primary" onClick={editHandler}>
+                      Edit Data
+                    </button>
+                  </Col>
                 </Row>
               </Container>
             </div>

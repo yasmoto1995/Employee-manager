@@ -16,9 +16,9 @@ const Cards = (props) => {
         </div>
       </div>
       <div className="lower-container">
-        <h4 className="name text-primary">
+        <h5 className="name text-primary">
           {`${props.data.firstName} ${props.data.lastName}`}
-        </h4>
+        </h5>
         <h5 className="role text-primary">{props.data.role}</h5>
         <DetailsModal data={props.data}></DetailsModal>
       </div>

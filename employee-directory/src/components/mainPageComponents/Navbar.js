@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="nav d-flex justify-content-between ">
       <div className="nav-brand">
         <Link className="nav-link" to="/">
-          Company
+          Tec Track
         </Link>
       </div>
       <div className="nav-items">
