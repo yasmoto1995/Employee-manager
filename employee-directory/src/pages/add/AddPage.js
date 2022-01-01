@@ -1,10 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import Heading from "../../components/addPageComponents/Heading";
 import Input from "../../components/addPageComponents/Input";
 import Button from "../../components/addPageComponents/Button";
 import Navbar from "../../components/addPageComponents/Navbar";
+import { EmployeeSuccessful, EmployeeExists, EmployeeError } from "../../components/univComponents/Toast";
 
 const AddPage = () => {
+
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [contact, setContact] = useState('');
+  const [address, setAddress] = useState('');
+  const [dept, setDepartment] = useState('');
+  const [role, setRole] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zip, setZip] = useState('');
+  const [country, setCountry] = useState('');
+  const [pass, setPass] = useState('');
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      const employee = { 
+          firstName: firstName, 
+          lastName: lastName, 
+          email: email, 
+          contact: contact, 
+          address: address, 
+          dept: dept, 
+          role: role, 
+          city: city, 
+          state: state, 
+          zip: zip, 
+          country: country, 
+          pass: pass 
+      }
+
+      fetch('http://localhost:7000/addRecord', {
+          method: 'POST',
+          headers:{'content-type': 'application/json'},
+          body: JSON.stringify(employee),
+      })
+      .then(response => {
+          setFirstName('')
+          setLastName('')
+          setEmail('')
+          setContact('')
+          setAddress('')
+          setDepartment('')
+          setRole('')
+          setCity('')
+          setState('')
+          setZip('')
+          setCountry('')
+          setPass('')
+
+          EmployeeSuccessful();
+      })
+      .catch(error => {
+          EmployeeError();
+          console.error('There has been a problem with fetch operation:', error);
+      });
+  }
+ 
   return (
     <>
       <div class="container">
@@ -21,13 +80,17 @@ const AddPage = () => {
           </div>
         </div>
         <div class="mx-5">
-          <form class="row" action="POST">
+          <form className="row" onSubmit={handleSubmit} method="POST">
             <Input
               type="text"
               name="fname"
               label="First Name"
               placeholder="First Name"
               groupClassName="col mt-3"
+              value={firstName}  
+              onChange={(e) => setFirstName(e.target.value)} 
+              autoComplete="off" 
+              autofocus
             />
             <Input
               type="text"
@@ -35,6 +98,9 @@ const AddPage = () => {
               label="Last Name"
               placeholder="Last Name"
               groupClassName="col mt-3"
+              value={lastName} 
+              onChange={(e) => setLastName(e.target.value)} 
+              autoComplete="off"
             />
             <div class="w-100"></div>
             <Input
@@ -43,6 +109,9 @@ const AddPage = () => {
               label="Email"
               placeholder="Email Address"
               groupClassName="col mt-3"
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
+              autoComplete="off"
             />
             <div class="w-100"></div>
             <Input
@@ -51,6 +120,9 @@ const AddPage = () => {
               label="Contact Number"
               placeholder="Contact Number"
               groupClassName="col mt-3"
+              value={contact} 
+              onChange={(e) => setContact(e.target.value)} 
+              autoComplete="off"
             />
             <div class="w-100"></div>
             <Input
@@ -58,7 +130,10 @@ const AddPage = () => {
               name="address"
               label="Address"
               placeholder="Address"
-              groupClassName="col mt-3"
+              groupClassName="col mt-3" 
+              value={address} 
+              onChange={(e) => setAddress(e.target.value)} 
+              autoComplete="off"
             />
             <div class="w-100"></div>
             <Input
@@ -67,6 +142,9 @@ const AddPage = () => {
               label="Department"
               placeholder="Department"
               groupClassName="col mt-3"
+              value={dept} 
+              onChange={(e) => setDepartment(e.target.value)} 
+              autoComplete="off"
             />
             <Input
               type="text"
@@ -74,6 +152,9 @@ const AddPage = () => {
               label="Role"
               placeholder="Role"
               groupClassName="col mt-3"
+              value={role} 
+              onChange={(e) => setRole(e.target.value)} 
+              autoComplete="off"
             />
             <div class="w-100"></div>
             <Input
@@ -82,13 +163,19 @@ const AddPage = () => {
               label="City"
               placeholder="City"
               groupClassName="col mt-3"
+              value={city} 
+              onChange={(e) => setCity(e.target.value)} 
+              autoComplete="off"
             />
             <Input
               type="text"
               name="state"
               label="State"
               placeholder="State"
-              groupClassName="col mt-3"
+              groupClassName="col mt-3" 
+              value={state} 
+              onChange={(e) => setState(e.target.value)} 
+              autoComplete="off"
             />
             <div class="w-100"></div>
             <Input
@@ -97,6 +184,9 @@ const AddPage = () => {
               label="Zip code"
               placeholder="Zip code"
               groupClassName="col mt-3"
+              value={zip} 
+              onChange={(e) => setZip(e.target.value)} 
+              autoComplete="off"
             />
             <Input
               type="text"
@@ -104,6 +194,9 @@ const AddPage = () => {
               label="Country"
               placeholder="Country"
               groupClassName="col mt-3"
+              value={country} 
+              onChange={(e) => setCountry(e.target.value)} 
+              autoComplete="off"
             />
             <div class="w-100"></div>
             <Input
@@ -112,12 +205,15 @@ const AddPage = () => {
               label="Password"
               placeholder="Password"
               groupClassName="col mt-3"
+              value={pass} 
+              onChange={(e) => setPass(e.target.value)} 
+              autoComplete="off"
             />
           </form>
         </div>
 
         <div class="row justify-content-center mt-3 mb-3 ">
-          <Button className="px-3" name="Save" />
+          <Button className="px-3" name="Save" onClick={handleSubmit} />
         </div>
         <div class="row justify-content-center mt-3 mb-3">
           <Button className="px-3" name="Exit" />

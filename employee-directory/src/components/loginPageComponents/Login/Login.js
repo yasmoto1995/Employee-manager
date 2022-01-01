@@ -80,6 +80,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    
     props.onLogin(emailState.value, passwordState.value)
   };
 
