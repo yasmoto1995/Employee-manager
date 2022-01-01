@@ -1,18 +1,31 @@
 import { Dropdown, Pagination } from "react-bootstrap";
+import { useState } from "react";
 import "./SortBar.css";
 
 const SortBar = (props) => {
-  let active = 1;
+  const [active, setActive] = useState(1);
+
+  const fncBtn = (event) => {
+    const num = +event.target.innerText[0];
+    const start = (num - 1) * 12;
+    const end = num * 12 - 1;
+
+    setActive(num);
+    props.pagFnc([start, end]);
+  };
+
   let items = [];
-  for (let number = 1; number <= Math.ceil(props.nums / 12); number++) {
+  for (let numbers = 1; numbers <= Math.ceil(props.nums / 12); numbers++) {
     items.push(
-      <Pagination.Item key={number} active={number === active}>
-        {number}
+      <Pagination.Item
+        key={numbers}
+        active={numbers === active}
+        onClick={fncBtn}
+      >
+        {numbers}
       </Pagination.Item>
     );
   }
-
-  console.log(props);
 
   return (
     <div className="main-container">
@@ -26,10 +39,10 @@ const SortBar = (props) => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item>Everyone</Dropdown.Item>
-            <Dropdown.Item>Manager</Dropdown.Item>
-            <Dropdown.Item>Partners</Dropdown.Item>
-            <Dropdown.Item>Team</Dropdown.Item>
+            <Dropdown.Item onClick={props.sortFnc}>Everyone</Dropdown.Item>
+            <Dropdown.Item onClick={props.sortFnc}>Manager</Dropdown.Item>
+            <Dropdown.Item onClick={props.sortFnc}>Partner</Dropdown.Item>
+            <Dropdown.Item onClick={props.sortFnc}>Team</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
