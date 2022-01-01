@@ -18,7 +18,6 @@ const AddPage = () => {
   const [state, setState] = useState('');
   const [zip, setZip] = useState('');
   const [country, setCountry] = useState('');
-  const [pass, setPass] = useState('');
 
   const handleSubmit = (e) => {
       e.preventDefault();
@@ -33,8 +32,7 @@ const AddPage = () => {
           city: city, 
           state: state, 
           zip: zip, 
-          country: country, 
-          pass: pass 
+          country: country
       }
 
       fetch('http://localhost:7000/addRecord', {
@@ -54,7 +52,6 @@ const AddPage = () => {
           setState('')
           setZip('')
           setCountry('')
-          setPass('')
 
           EmployeeSuccessful();
       })
@@ -199,16 +196,6 @@ const AddPage = () => {
               autoComplete="off"
             />
             <div class="w-100"></div>
-            <Input
-              type="text"
-              name="password"
-              label="Password"
-              placeholder="Password"
-              groupClassName="col mt-3"
-              value={pass} 
-              onChange={(e) => setPass(e.target.value)} 
-              autoComplete="off"
-            />
           </form>
         </div>
 

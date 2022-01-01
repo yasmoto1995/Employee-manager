@@ -44,6 +44,20 @@ app.post("/addRecord", function (req, res) {
   });
 });
 
+app.post("/isLoginUserExists", function (req, res) {
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+      var dbo = db.db("EmployeeDB");
+      var query = { email: req.body.email, password: req.body.password };
+      dbo.collection("credentials").find(query).toArray(function(err, result) {
+      if (err) throw err;
+      if(result[0]) res.status(200).send("User Authenticated");//res.send("User Authenticated");
+      else res.status(401).send("Invalid User");
+      db.close();
+    });
+  });
+});
+
 
 //mongodb+srv://user:if4zEWLcMZsqnKY@employeedb.qwpku.mongodb.net/EmployeeDB?retryWrites=true&w=majority
 

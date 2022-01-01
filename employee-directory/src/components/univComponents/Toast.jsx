@@ -26,3 +26,19 @@ export function EmployeeError(){
     notify();
     
 }
+
+export function LoginSuccessful(){
+    const notify = ()=>{
+        toast.success('Welcome back!.', {autoClose:4000})
+    }
+    notify();
+    
+}
+
+export function LoginCredentialsError(){
+    const notify = ()=>{
+        toast.error('Incorrect Credentials, please try again.', {autoClose:5000})
+    }
+    notify();
+    
+}
