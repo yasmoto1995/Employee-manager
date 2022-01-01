@@ -77,6 +77,13 @@ const DetailsModal = (props) => {
                     <span className="text-primary">{props.data.address}</span>
                   </h5>
                 </Row>
+                <Row>
+                  <Col>
+                    <Button variant="primary" className="btn-edit">
+                      Edit Details
+                    </Button>
+                  </Col>
+                </Row>
               </Container>
             </div>
           </div>

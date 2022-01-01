@@ -1,6 +1,7 @@
 import { Dropdown, Pagination } from "react-bootstrap";
 import { useState } from "react";
 import "./SortBar.css";
+import SearchBar from "./SearchBar";
 
 const SortBar = (props) => {
   const [active, setActive] = useState(1);
@@ -8,7 +9,7 @@ const SortBar = (props) => {
   const fncBtn = (event) => {
     const num = +event.target.innerText[0];
     const start = (num - 1) * 12;
-    const end = num * 12 - 1;
+    const end = num * 12;
 
     setActive(num);
     props.pagFnc([start, end]);
@@ -31,6 +32,9 @@ const SortBar = (props) => {
     <div className="main-container">
       <div className="pagination-container">
         <Pagination>{items}</Pagination>
+      </div>
+      <div className="search-container">
+        <SearchBar data={props.data}></SearchBar>
       </div>
       <div className="sort-container">
         <Dropdown>

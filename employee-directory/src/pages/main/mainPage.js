@@ -21,7 +21,7 @@ const Main = () => {
   const [updatedData, setData] = useState(filteredData("Everyone"));
 
   const paginationHandlers = (range) => {
-    console.log(updatedData);
+    setData(updatedData.slice(range[0], range[1]));
     // setData(updatedData[(range[0], range[1])]);
   };
 
@@ -37,6 +37,7 @@ const Main = () => {
           nums={updatedData.length}
           sortFnc={sortHandlers}
           pagFnc={paginationHandlers}
+          data={data}
         ></SortBar>
       </Container>
       <Container fluid>
