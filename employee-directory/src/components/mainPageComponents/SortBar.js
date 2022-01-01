@@ -34,7 +34,7 @@ const SortBar = (props) => {
         <Pagination>{items}</Pagination>
       </div>
       <div className="search-container">
-        <SearchBar data={props.data}></SearchBar>
+        <SearchBar data={props.data} fnc={props.searchFnc}></SearchBar>
       </div>
       <div className="sort-container">
         <Dropdown>

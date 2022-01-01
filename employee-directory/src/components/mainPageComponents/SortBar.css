@@ -1,8 +1,8 @@
 .main-container {
   padding: 10px 20px;
-  align-items: center;
   justify-content: space-between;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
   border-radius: 20px;
   margin-top: 15px;
   background: #f6f6fb;
@@ -20,7 +20,8 @@
   border-radius: 0 5px 5px 0;
 }
 
-.pagination-container {
+.pagination-container,
+.sort-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,6 +32,14 @@
   background: none;
 }
 
-.btn-edit {
-  margin-bottom: 10px;
+@media screen and (max-width: 760px) {
+  .pagination-container,
+  .sort-container,
+  .search-container {
+    padding-top: 10px;
+  }
+  .main-container {
+    justify-content: center;
+    grid-template-columns: repeat(1, auto);
+  }
 }

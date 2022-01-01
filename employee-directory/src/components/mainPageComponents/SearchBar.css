@@ -10,3 +10,9 @@
   width: 400px;
   border-radius: 1em 0 0 1em;
 }
+
+@media screen and (max-width: 760px) {
+  .input-search {
+    width: 100%;
+  }
+}
