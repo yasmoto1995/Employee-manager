@@ -200,7 +200,7 @@ const AddPage = () => {
             />
             <div class="w-100"></div>
             <Input
-              type="text"
+              type="password"
               name="password"
               label="Password"
               placeholder="Password"

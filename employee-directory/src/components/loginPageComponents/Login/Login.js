@@ -3,6 +3,7 @@ import React, { useState, useEffect, useReducer } from 'react';
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import md5 from 'md5';
 
 const emailReducer = (state, action) => {
   if (action.type === 'USER_INPUT') {
@@ -80,8 +81,25 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    
-    props.onLogin(emailState.value, passwordState.value)
+    const credentials = {
+      email: emailState.value,
+      password: md5(passwordState.value),
+    };
+    fetch('http://localhost:7000/isLoginUserExists', {
+          method: 'POST',
+          headers:{'content-type': 'application/json'},
+          body: JSON.stringify(credentials),
+    })
+    .then(response => {
+      //const resp = response.json();
+      if(response.status == 200) props.onLogin(emailState.value, passwordState.value);
+      else if(response.status == 401) console.log("Invalid User");
+      else console.log(response);
+  })
+  .catch(error => {
+      //EmployeeError();
+      console.error('There has been a problem with fetch operation:', error);
+  });
   };
 
   return (
