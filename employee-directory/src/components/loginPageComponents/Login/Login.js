@@ -3,6 +3,7 @@ import React, { useState, useEffect, useReducer } from 'react';
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import { LoginSuccessful, LoginCredentialsError } from '../../univComponents/Toast';
 import md5 from 'md5';
 
 const emailReducer = (state, action) => {
@@ -92,13 +93,15 @@ const Login = (props) => {
     })
     .then(response => {
       //const resp = response.json();
-      if(response.status == 200) props.onLogin(emailState.value, passwordState.value);
-      else if(response.status == 401) console.log("Invalid User");
+      if(response.status == 200) {
+        LoginSuccessful();
+        props.onLogin(emailState.value, passwordState.value);
+      }
+      else if(response.status == 401) LoginCredentialsError();
       else console.log(response);
   })
   .catch(error => {
-      //EmployeeError();
-      console.error('There has been a problem with fetch operation:', error);
+      LoginCredentialsError();
   });
   };
 
