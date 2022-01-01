@@ -6,25 +6,38 @@ import data from "../../components/mainPageComponents/data";
 import Cards from "../../components/mainPageComponents/Cards";
 import Navbar from "../../components/mainPageComponents/Navbar";
 
-const filteredData = function (type) {
-  if (type === "Everyone") {
-    return data.data;
-  }
-
-  return data.data.filter((el) => el.role === type);
-};
+//new
 
 const Main = () => {
-  const [updatedData, setData] = useState(filteredData("Manager"));
-  // console.log(filteredData("Partner"));
-  // console.log(filteredData("Manager"));
-  // console.log(filteredData("Team"));
+  const filteredData = (type) => {
+    const info =
+      type === "Everyone"
+        ? data.data
+        : data.data.filter((el) => el.role === type);
+
+    return info;
+  };
+
+  const [updatedData, setData] = useState(filteredData("Everyone"));
+
+  const paginationHandlers = (range) => {
+    console.log(updatedData);
+    // setData(updatedData[(range[0], range[1])]);
+  };
+
+  const sortHandlers = (event) => {
+    setData(filteredData(`${event.target.innerText}`));
+  };
 
   return (
     <div className="main">
       <Navbar></Navbar>
       <Container>
-        <SortBar nums={updatedData.length}></SortBar>
+        <SortBar
+          nums={updatedData.length}
+          sortFnc={sortHandlers}
+          pagFnc={paginationHandlers}
+        ></SortBar>
       </Container>
       <Container fluid>
         <Row>
