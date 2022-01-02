@@ -20,6 +20,8 @@ const EditProfile = () => {
     data = location.state;
   }
 
+  console.log(data);
+
   const [firstName, setFirstName] = useState(data.firstName);
   const [lastName, setLastName] = useState(data.lastName);
   const [email, setEmail] = useState(data.email);

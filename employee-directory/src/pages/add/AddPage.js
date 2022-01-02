@@ -3,66 +3,70 @@ import Heading from "../../components/addPageComponents/Heading";
 import Input from "../../components/addPageComponents/Input";
 import Button from "../../components/addPageComponents/Button";
 import Navbar from "../../components/addPageComponents/Navbar";
-import { EmployeeSuccessful, EmployeeExists, EmployeeError } from "../../components/univComponents/Toast";
+import {
+  EmployeeSuccessful,
+  EmployeeExists,
+  EmployeeError,
+} from "../../components/univComponents/Toast";
+// import "./addPage.css";
 
 const AddPage = () => {
-
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [contact, setContact] = useState('');
-  const [address, setAddress] = useState('');
-  const [dept, setDepartment] = useState('');
-  const [role, setRole] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [zip, setZip] = useState('');
-  const [country, setCountry] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [address, setAddress] = useState("");
+  const [dept, setDepartment] = useState("");
+  const [role, setRole] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
+  const [country, setCountry] = useState("");
 
   const handleSubmit = (e) => {
-      e.preventDefault();
-      const employee = { 
-          firstName: firstName, 
-          lastName: lastName, 
-          email: email, 
-          contact: contact, 
-          address: address, 
-          dept: dept, 
-          role: role, 
-          city: city, 
-          state: state, 
-          zip: zip, 
-          country: country
-      }
+    e.preventDefault();
+    const employee = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      contact: contact,
+      address: address,
+      dept: dept,
+      role: role,
+      city: city,
+      state: state,
+      zip: zip,
+      country: country,
+    };
 
-      fetch('http://localhost:7000/addRecord', {
-          method: 'POST',
-          headers:{'content-type': 'application/json'},
-          body: JSON.stringify(employee),
-      })
-      .then(response => {
+    fetch("http://localhost:7000/addRecord", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(employee),
+    })
+      .then((response) => {
         if (response.status === 200) {
-          setFirstName('')
-          setLastName('')
-          setEmail('')
-          setContact('')
-          setAddress('')
-          setDepartment('')
-          setRole('')
-          setCity('')
-          setState('')
-          setZip('')
-          setCountry('')
+          setFirstName("");
+          setLastName("");
+          setEmail("");
+          setContact("");
+          setAddress("");
+          setDepartment("");
+          setRole("");
+          setCity("");
+          setState("");
+          setZip("");
+          setCountry("");
 
           EmployeeSuccessful();
         } else if (response.status === 401) EmployeeExists();
       })
-      .catch(error => {
-          EmployeeError();
-          console.error('There has been a problem with fetch operation:', error);
+      .catch((error) => {
+        EmployeeError();
+        console.error("There has been a problem with fetch operation:", error);
       });
-  }
- 
+  };
+
   return (
     <>
       <div class="container">
@@ -86,9 +90,9 @@ const AddPage = () => {
               label="First Name"
               placeholder="First Name"
               groupClassName="col mt-3"
-              value={firstName}  
-              onChange={(e) => setFirstName(e.target.value)} 
-              autoComplete="off" 
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              autoComplete="off"
               autofocus
             />
             <Input
@@ -97,8 +101,8 @@ const AddPage = () => {
               label="Last Name"
               placeholder="Last Name"
               groupClassName="col mt-3"
-              value={lastName} 
-              onChange={(e) => setLastName(e.target.value)} 
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
               autoComplete="off"
             />
             <div class="w-100"></div>
@@ -108,8 +112,8 @@ const AddPage = () => {
               label="Email"
               placeholder="Email Address"
               groupClassName="col mt-3"
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               autoComplete="off"
             />
             <div class="w-100"></div>
@@ -119,8 +123,8 @@ const AddPage = () => {
               label="Contact Number"
               placeholder="Contact Number"
               groupClassName="col mt-3"
-              value={contact} 
-              onChange={(e) => setContact(e.target.value)} 
+              value={contact}
+              onChange={(e) => setContact(e.target.value)}
               autoComplete="off"
             />
             <div class="w-100"></div>
@@ -129,9 +133,9 @@ const AddPage = () => {
               name="address"
               label="Address"
               placeholder="Address"
-              groupClassName="col mt-3" 
-              value={address} 
-              onChange={(e) => setAddress(e.target.value)} 
+              groupClassName="col mt-3"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
               autoComplete="off"
             />
             <div class="w-100"></div>
@@ -141,8 +145,8 @@ const AddPage = () => {
               label="Department"
               placeholder="Department"
               groupClassName="col mt-3"
-              value={dept} 
-              onChange={(e) => setDepartment(e.target.value)} 
+              value={dept}
+              onChange={(e) => setDepartment(e.target.value)}
               autoComplete="off"
             />
             <Input
@@ -151,8 +155,8 @@ const AddPage = () => {
               label="Role"
               placeholder="Role"
               groupClassName="col mt-3"
-              value={role} 
-              onChange={(e) => setRole(e.target.value)} 
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
               autoComplete="off"
             />
             <div class="w-100"></div>
@@ -162,8 +166,8 @@ const AddPage = () => {
               label="City"
               placeholder="City"
               groupClassName="col mt-3"
-              value={city} 
-              onChange={(e) => setCity(e.target.value)} 
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
               autoComplete="off"
             />
             <Input
@@ -171,9 +175,9 @@ const AddPage = () => {
               name="state"
               label="State"
               placeholder="State"
-              groupClassName="col mt-3" 
-              value={state} 
-              onChange={(e) => setState(e.target.value)} 
+              groupClassName="col mt-3"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
               autoComplete="off"
             />
             <div class="w-100"></div>
@@ -183,8 +187,8 @@ const AddPage = () => {
               label="Zip code"
               placeholder="Zip code"
               groupClassName="col mt-3"
-              value={zip} 
-              onChange={(e) => setZip(e.target.value)} 
+              value={zip}
+              onChange={(e) => setZip(e.target.value)}
               autoComplete="off"
             />
             <Input
@@ -193,8 +197,8 @@ const AddPage = () => {
               label="Country"
               placeholder="Country"
               groupClassName="col mt-3"
-              value={country} 
-              onChange={(e) => setCountry(e.target.value)} 
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
               autoComplete="off"
             />
             <div class="w-100"></div>

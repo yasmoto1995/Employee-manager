@@ -115,13 +115,10 @@ app.post("/getAllData", function (req, res) {
     if (err) throw err;
     var dbo = db.db("EmployeeDB");
     dbo
-      .collection("credentials")
+      .collection("employees")
       .find({})
       .toArray(function (err, result) {
         if (err) throw err;
-        if (result[0]) res.status(200).send("User Authenticated");
-        //res.send("User Authenticated");
-
         res.send({
           result,
         });

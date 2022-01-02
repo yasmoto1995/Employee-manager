@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import classes from './Navigation.module.css';
+import classes from "./Navigation.module.css";
 
 const Navigation = (props) => {
   return (
@@ -8,12 +8,12 @@ const Navigation = (props) => {
       <ul>
         {props.isLoggedIn && (
           <li>
-            <a href="/">Button 1</a>
+            <a href="/add">Add</a>
           </li>
         )}
         {props.isLoggedIn && (
           <li>
-            <a href="/">Button 2</a>
+            <a href="/edit">Edit</a>
           </li>
         )}
         {props.isLoggedIn && (
