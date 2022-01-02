@@ -2,36 +2,11 @@ import "./mainPage.css";
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SortBar from "../../components/mainPageComponents/SortBar";
-import data from "../../components/mainPageComponents/data";
 import Cards from "../../components/mainPageComponents/Cards";
 //new
 
 const Main = () => {
-  const filteredData = (type) => {
-    const info =
-      type === "Everyone"
-        ? data.data
-        : data.data.filter((el) => el.role === type);
-
-    return info;
-  };
-
   const [updatedData, setData] = useState([]);
-  console.log(updatedData);
-  const paginationHandlers = (range) => {
-    setData(updatedData.slice(range[0], range[1]));
-  };
-
-  const searchHandler = (upD) => {
-    setData(upD);
-  };
-
-  const sortHandlers = (event) => {
-    setData(filteredData(`${event.target.innerText}`));
-  };
-
-  const baseUrl = "http://localhost:7000/getAllData";
-
   useEffect(() => {
     async function getData() {
       const response = await fetch(`${baseUrl}`, {
@@ -45,6 +20,44 @@ const Main = () => {
 
     getData();
   }, []);
+
+  const refreshFnc = () => {
+    async function getData() {
+      const response = await fetch(`${baseUrl}`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+      });
+
+      const newData = await response.json();
+      setData(newData.result);
+    }
+
+    getData();
+  };
+
+  const paginationHandlers = (range) => {
+    setData(updatedData.slice(range[0], range[1]));
+  };
+
+  const searchHandler = (upD) => {
+    setData(upD);
+  };
+
+  const filteredData = (type) => {
+    const info =
+      type === "Everyone"
+        ? updatedData
+        : updatedData.filter((el) => el.role === type);
+
+    return info;
+  };
+
+  const sortHandlers = (event) => {
+    setData(filteredData(`${event.target.innerText}`));
+  };
+
+  const baseUrl = "http://localhost:7000/getAllData";
+
   return (
     <div className="main">
       <Container>
@@ -53,7 +66,8 @@ const Main = () => {
           sortFnc={sortHandlers}
           pagFnc={paginationHandlers}
           searchFnc={searchHandler}
-          data={data}
+          data={updatedData}
+          refreshFnc={refreshFnc}
         ></SortBar>
       </Container>
       <Container fluid>

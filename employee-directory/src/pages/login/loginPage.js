@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./loginPage.css";
 import Login from "../../components/loginPageComponents/Login/Login";
-import Home from "../../components/loginPageComponents/Home/Home";
 import MainHeader from "../../components/loginPageComponents/MainHeader/MainHeader";
 import Main from "../main/mainPage";
 

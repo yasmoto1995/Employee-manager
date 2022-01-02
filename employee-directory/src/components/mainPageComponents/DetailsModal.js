@@ -18,12 +18,13 @@ const DetailsModal = (props) => {
       </Button>
 
       <Modal
+        className="modal-main"
         show={show}
         onHide={() => setShow(false)}
         size="lg"
         aria-labelledby="example-custom-modal-styling-title"
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="modal-main--header">
           <Modal.Title id="example-custom-modal-styling-title">
             <img src={props.data.src} alt="profile-img" className="modal-img" />
           </Modal.Title>

@@ -49,6 +49,12 @@ const SortBar = (props) => {
             <Dropdown.Item onClick={props.sortFnc}>Team</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+        <button
+          className="btn btn-primary btn-refresh"
+          onClick={props.refreshFnc}
+        >
+          Refresh Data
+        </button>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./SearchBar.css";
 
 const SearchBar = (props) => {
-  const info = props.data.data;
+  const info = props.data;
   const [enteredSearch, setSearch] = useState("");
 
   const searchChangeHandler = (event) => {

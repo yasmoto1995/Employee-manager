@@ -78,13 +78,13 @@ const AddProfile = () => {
 
       <div className="main-div">
         <div className="left-div">
-          <div className="text-left m-3 profile">
+          <div className="m-3 profile text-center">
             <img className="profile-img-add" src={src} alt="" />
             <div type="button" className="addpage-img align-middle text-center">
               <Example fnc={updateSrc}></Example>
             </div>
 
-            <Button className="btn-save" name="Save" onClick={handleSubmit} />
+            <Button className="btn-save " name="Save" onClick={handleSubmit} />
           </div>
         </div>
         <div className="right-div">

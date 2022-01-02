@@ -32,6 +32,10 @@
   background: none;
 }
 
+.btn-refresh {
+  margin-left: 10px;
+}
+
 @media screen and (max-width: 760px) {
   .pagination-container,
   .sort-container,

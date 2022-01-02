@@ -35,3 +35,9 @@
   position: relative;
   top: 20px;
 }
+
+@media screen and (max-width: 760px) {
+  .main-div {
+    flex-direction: column;
+  }
+}
