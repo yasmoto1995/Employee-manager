@@ -3,6 +3,7 @@ import "./loginPage.css";
 import Login from "../../components/loginPageComponents/Login/Login";
 import Home from "../../components/loginPageComponents/Home/Home";
 import MainHeader from "../../components/loginPageComponents/MainHeader/MainHeader";
+import Main from "../main/mainPage";
 
 const LoginPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,7 +33,7 @@ const LoginPage = () => {
       <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
       <main>
         {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />}
+        {isLoggedIn && <Main></Main>}
       </main>
     </React.Fragment>
   );
