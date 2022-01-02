@@ -12,5 +12,10 @@
 }
 
 .main-header h1 {
-  color: #3751FE;
+  color: #3751fe;
+}
+
+.lottie-container {
+  height: 400px;
+  width: 400px;
 }
