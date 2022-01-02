@@ -22,7 +22,6 @@ const Main = () => {
 
   const paginationHandlers = (range) => {
     setData(updatedData.slice(range[0], range[1]));
-    // setData(updatedData[(range[0], range[1])]);
   };
 
   const searchHandler = (upD) => {

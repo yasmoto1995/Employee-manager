@@ -14,7 +14,7 @@ const data = {
       country: "USA",
       pass: "1234",
       id: 1,
-      src: "https://i.postimg.cc/90mcVfBq/unsplash-m-EZ3-Po-FGs-k.jpg",
+      src: "https://i.postimg.cc/3RDbYzb5/avatar1.jpg",
     },
     {
       firstName: "Sarthak",
@@ -30,7 +30,7 @@ const data = {
       country: "USA",
       pass: "1234",
       id: 2,
-      src: "https://i.postimg.cc/90mcVfBq/unsplash-m-EZ3-Po-FGs-k.jpg",
+      src: "https://i.postimg.cc/0jRXQZL6/avatar2.jpg",
     },
     {
       firstName: "Kate",
@@ -46,7 +46,7 @@ const data = {
       country: "USA",
       pass: "1234",
       id: 3,
-      src: "https://i.postimg.cc/90mcVfBq/unsplash-m-EZ3-Po-FGs-k.jpg",
+      src: "https://i.postimg.cc/VvqGbn8K/avatar3.jpg",
     },
     {
       firstName: "Kate",
@@ -62,7 +62,7 @@ const data = {
       country: "USA",
       pass: "1234",
       id: 4,
-      src: "https://i.postimg.cc/90mcVfBq/unsplash-m-EZ3-Po-FGs-k.jpg",
+      src: "https://i.postimg.cc/h4T3wWdV/avatar4.jpg",
     },
     {
       firstName: "Kate",
@@ -78,7 +78,7 @@ const data = {
       country: "USA",
       pass: "1234",
       id: 5,
-      src: "https://i.postimg.cc/90mcVfBq/unsplash-m-EZ3-Po-FGs-k.jpg",
+      src: "https://i.postimg.cc/wjTf71bk/avatar5.jpg",
     },
     {
       firstName: "Kate",
@@ -94,7 +94,7 @@ const data = {
       country: "USA",
       pass: "1234",
       id: 6,
-      src: "https://i.postimg.cc/90mcVfBq/unsplash-m-EZ3-Po-FGs-k.jpg",
+      src: "https://i.postimg.cc/sDJHjYKX/avatar6.jpg",
     },
   ],
 };

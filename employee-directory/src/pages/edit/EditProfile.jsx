@@ -5,9 +5,13 @@ import Input from "../../components/editPageComponents/Input";
 import Navbar from "../../components/editPageComponents/Navbar";
 import Button from "../../components/editPageComponents/Button";
 import { useLocation } from "react-router-dom";
-import { EmployeeSuccessful, EmployeeError } from "../../components/univComponents/Toast";
+import {
+  EmployeeSuccessful,
+  EmployeeError,
+} from "../../components/univComponents/Toast";
+import Example from "../../components/editPageComponents/Popover";
 
-let data = "";
+let data = {};
 
 const EditProfile = () => {
   const location = useLocation();
@@ -27,52 +31,59 @@ const EditProfile = () => {
   const [state, setState] = useState(data.state);
   const [zip, setZip] = useState(data.zip);
   const [country, setCountry] = useState(data.country);
+  //new
+  const [src, setSrc] = useState(data.src);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const employee = { 
-        id: data._id,
-        firstName: firstName, 
-        lastName: lastName, 
-        email: email, 
-        contact: contact, 
-        address: address, 
-        dept: dept, 
-        role: role, 
-        city: city, 
-        state: state, 
-        zip: zip, 
-        country: country
-    }
+    const employee = {
+      id: data._id,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      contact: contact,
+      address: address,
+      dept: dept,
+      role: role,
+      city: city,
+      state: state,
+      zip: zip,
+      country: country,
+      src: src,
+    };
 
-    fetch('http://localhost:7000/editRecord', {
-        method: 'POST',
-        headers:{'content-type': 'application/json'},
-        body: JSON.stringify(employee),
+    fetch("http://localhost:7000/editRecord", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(employee),
     })
-    .then(response => {
-      if (response.status === 200) {
-        setFirstName('')
-        setLastName('')
-        setEmail('')
-        setContact('')
-        setAddress('')
-        setDepartment('')
-        setRole('')
-        setCity('')
-        setState('')
-        setZip('')
-        setCountry('')
-
-        EmployeeSuccessful();
-      }
-    })
-    .catch(error => {
+      .then((response) => {
+        if (response.status === 200) {
+          setFirstName("");
+          setLastName("");
+          setEmail("");
+          setContact("");
+          setAddress("");
+          setDepartment("");
+          setRole("");
+          setCity("");
+          setState("");
+          setZip("");
+          setCountry("");
+          EmployeeSuccessful();
+        }
+      })
+      .catch((error) => {
         EmployeeError();
-        console.error('There has been a problem with fetch operation:', error);
-    });
-}
+        console.error("There has been a problem with fetch operation:", error);
+      });
+  };
 
+  const updateSrc = (event) => {
+    data.src = event.target.attributes.src.nodeValue;
+    setSrc(event.target.attributes.src.nodeValue);
+    // console.log(event.target.attributes.src.nodeValue);
+  };
   return (
     <>
       <Navbar></Navbar>
@@ -84,11 +95,12 @@ const EditProfile = () => {
             src={data.src ?? "https://www.w3schools.com/howto/img_avatar.png"}
             alt=""
           />
+
           <div
             type="button"
             className="edit-profile-img align-middle text-center my-auto"
           >
-            ✒️
+            <Example fnc={updateSrc}></Example>
           </div>
         </div>
         <div className="mx-5">
@@ -121,7 +133,7 @@ const EditProfile = () => {
               name="email"
               label="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)} 
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email Address"
               groupClassName="col mt-3"
               labelClassName="ms-3 mb-3"
@@ -146,7 +158,7 @@ const EditProfile = () => {
               label="Address"
               placeholder="Address"
               value={address}
-              onChange={(e) => setAddress(e.target.value)} 
+              onChange={(e) => setAddress(e.target.value)}
               groupClassName="col mt-3"
               labelClassName="ms-3 mb-3"
               inputClassName="rounded border-0 shadow-sm"
@@ -203,7 +215,7 @@ const EditProfile = () => {
               name="pin"
               label="Zip code"
               value={zip}
-              onChange={(e) => setZip(e.target.value)} 
+              onChange={(e) => setZip(e.target.value)}
               placeholder="Zip code"
               groupClassName="col mt-3"
               labelClassName="ms-3 mb-3"
