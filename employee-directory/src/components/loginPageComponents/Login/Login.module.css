@@ -34,7 +34,7 @@
 
 .control input:focus {
   outline: none;
-  border-color: #3751FE;
+  border-color: #3751fe;
   background: #e1f6ff;
 }
 
@@ -52,5 +52,18 @@
     align-items: center;
     flex-direction: row;
   }
+}
 
+.lottie-container {
+  top: 100px;
+  right: 60px;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+}
+
+@media screen and (max-width: 800px) {
+  .lottie-container {
+    display: none;
+  }
 }

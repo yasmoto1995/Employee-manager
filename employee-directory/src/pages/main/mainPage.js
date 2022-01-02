@@ -1,14 +1,32 @@
 import "./mainPage.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SortBar from "../../components/mainPageComponents/SortBar";
 import data from "../../components/mainPageComponents/data";
 import Cards from "../../components/mainPageComponents/Cards";
 import Navbar from "../../components/mainPageComponents/Navbar";
-
 //new
 
 const Main = () => {
+  const baseUrl = "http://localhost:7000/getAllData";
+  const [post, setPost] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch(`${baseUrl}`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+      });
+
+      const newData = await response.json();
+      setPost(newData);
+    }
+
+    getData();
+  }, []);
+
+  console.log(post);
+
   const filteredData = (type) => {
     const info =
       type === "Everyone"
@@ -34,7 +52,6 @@ const Main = () => {
 
   return (
     <div className="main">
-      <Navbar></Navbar>
       <Container>
         <SortBar
           nums={updatedData.length}
