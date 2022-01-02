@@ -98,7 +98,6 @@ const Login = (props) => {
           LoginSuccessful();
           props.onLogin(emailState.value, passwordState.value);
         } else if (response.status === 401) LoginCredentialsError();
-        else console.log(response);
       })
       .catch((error) => {
         LoginCredentialsError();

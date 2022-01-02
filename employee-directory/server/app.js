@@ -22,24 +22,31 @@ app.post("/addRecord", function (req, res) {
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("EmployeeDB");
-    dbo.collection("employees").insertOne({
-      firstName: req.body.firstName, 
-      lastName: req.body.lastName, 
-      email: req.body.email, 
-      contact: req.body.contact, 
-      address: req.body.address, 
-      dept: req.body.dept, 
-      role: req.body.role, 
-      city: req.body.city, 
-      state: req.body.state, 
-      zip: req.body.zip, 
-      country: req.body.country, 
-      pass: req.body.pass 
-    }, 
-    function(err, result) {
-        if (err) throw err;
-        res.json(result);
-        db.close();
+    dbo.collection("employees").find({$or:[{ email: req.body.email}, {contact: req.body.contact }]}).toArray(function(err, result) {
+      if (err) throw err;
+      if(result[0]){
+        res.status(401).send("User Already Exists");
+      }
+      else{
+        dbo.collection("employees").insertOne({
+          firstName: req.body.firstName, 
+          lastName: req.body.lastName, 
+          email: req.body.email, 
+          contact: req.body.contact, 
+          address: req.body.address, 
+          dept: req.body.dept, 
+          role: req.body.role, 
+          city: req.body.city, 
+          state: req.body.state, 
+          zip: req.body.zip, 
+          country: req.body.country
+        }, 
+        function(err, result) {
+          if (err) throw err;
+          else res.status(200).send("Record Added Successfully");
+          db.close();
+        });
+      }
     });
   });
 });

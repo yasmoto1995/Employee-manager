@@ -13,7 +13,7 @@ export function EmployeeSuccessful(){
 
 export function EmployeeExists(){
     const notify = ()=>{
-        toast.warning('An Employee with the contact number already exists.', {autoClose:5000})
+        toast.warning('An Employee with the email or contact number already exists. Please try again', {autoClose:5000})
     }
     notify();
     

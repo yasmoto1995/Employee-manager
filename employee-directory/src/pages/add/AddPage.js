@@ -41,6 +41,7 @@ const AddPage = () => {
           body: JSON.stringify(employee),
       })
       .then(response => {
+        if (response.status === 200) {
           setFirstName('')
           setLastName('')
           setEmail('')
@@ -54,6 +55,7 @@ const AddPage = () => {
           setCountry('')
 
           EmployeeSuccessful();
+        } else if (response.status === 401) EmployeeExists();
       })
       .catch(error => {
           EmployeeError();
