@@ -4,29 +4,9 @@ import { Col, Container, Row } from "react-bootstrap";
 import SortBar from "../../components/mainPageComponents/SortBar";
 import data from "../../components/mainPageComponents/data";
 import Cards from "../../components/mainPageComponents/Cards";
-import Navbar from "../../components/mainPageComponents/Navbar";
 //new
 
 const Main = () => {
-  const baseUrl = "http://localhost:7000/getAllData";
-  const [post, setPost] = useState([]);
-
-  useEffect(() => {
-    async function getData() {
-      const response = await fetch(`${baseUrl}`, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-      });
-
-      const newData = await response.json();
-      setPost(newData);
-    }
-
-    getData();
-  }, []);
-
-  console.log(post);
-
   const filteredData = (type) => {
     const info =
       type === "Everyone"
@@ -36,8 +16,8 @@ const Main = () => {
     return info;
   };
 
-  const [updatedData, setData] = useState(filteredData("Everyone"));
-
+  const [updatedData, setData] = useState([]);
+  console.log(updatedData);
   const paginationHandlers = (range) => {
     setData(updatedData.slice(range[0], range[1]));
   };
@@ -50,6 +30,21 @@ const Main = () => {
     setData(filteredData(`${event.target.innerText}`));
   };
 
+  const baseUrl = "http://localhost:7000/getAllData";
+
+  useEffect(() => {
+    async function getData() {
+      const response = await fetch(`${baseUrl}`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+      });
+
+      const newData = await response.json();
+      setData(newData.result);
+    }
+
+    getData();
+  }, []);
   return (
     <div className="main">
       <Container>
@@ -64,7 +59,7 @@ const Main = () => {
       <Container fluid>
         <Row className="card-container">
           {updatedData.map((a) => (
-            <Col key={a.id} className="cards">
+            <Col key={a._id} className="cards">
               <Cards data={a}></Cards>
             </Col>
           ))}
