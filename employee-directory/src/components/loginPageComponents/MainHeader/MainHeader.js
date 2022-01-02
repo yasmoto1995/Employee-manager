@@ -24,7 +24,7 @@ const MainHeader = (props) => {
         isLoggedIn={props.isAuthenticated}
         onLogout={props.onLogout}
       />
-      {/* <div className={classes["lottie-container"]} ref={container}></div> */}
+      { <div className={classes["lottie-container"]} ref={container}> </div> }
     </header>
   );
 };
