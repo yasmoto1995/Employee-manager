@@ -47,6 +47,7 @@ app.post("/addRecord", function (req, res) {
               state: req.body.state,
               zip: req.body.zip,
               country: req.body.country,
+              src: req.body.src
             },
             function (err, result) {
               if (err) throw err;
@@ -77,6 +78,7 @@ app.post("/editRecord", function (req, res) {
         state: req.body.state,
         zip: req.body.zip,
         country: req.body.country,
+        src: req.body.src
       },
     };
     dbo

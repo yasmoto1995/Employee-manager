@@ -22,6 +22,7 @@ const AddPage = () => {
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
   const [country, setCountry] = useState("");
+  const [src, setSrc] = useState("https://i.postimg.cc/3RDbYzb5/avatar1.jpg")
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +38,7 @@ const AddPage = () => {
       state: state,
       zip: zip,
       country: country,
+      src: src
     };
 
     fetch("http://localhost:7000/addRecord", {
@@ -57,6 +59,7 @@ const AddPage = () => {
           setState("");
           setZip("");
           setCountry("");
+          setSrc("https://i.postimg.cc/3RDbYzb5/avatar1.jpg");
 
           EmployeeSuccessful();
         } else if (response.status === 401) EmployeeExists();
