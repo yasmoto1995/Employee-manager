@@ -60,7 +60,6 @@ const AddPage = () => {
           setZip("");
           setCountry("");
           setSrc("https://i.postimg.cc/3RDbYzb5/avatar1.jpg");
-
           EmployeeSuccessful();
         } else if (response.status === 401) EmployeeExists();
       })
