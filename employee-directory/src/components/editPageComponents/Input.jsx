@@ -6,18 +6,19 @@ const Input = (props) => {
       <label htmlFor={props.name} className={props.labalClassName}>
         {props.label}
       </label>
-      <input
-        className={`form-control ` + props.inputClassName}
-        id={props.name}
-        name={props.name}
-        type={props.type}
-        placeholder={props.placeholder}
-        defaultValue={props.defaultValue}
-        onChange={props.handleChange}
-        onBlur={props.handleBlur}
-        required={props.required}
-        disabled={props.disabled}
-      />
+      <input  className={`form-control ` + props.inputClassName}
+                    id={props.name} 
+                    name={props.name}
+                    type={props.type}
+                    placeholder={props.placeholder}
+                    value={props.value}
+                    onChange={props.onChange}
+                    onBlur={props.handleBlur}
+                    required={props.required}
+                    disabled={props.disabled}
+                    autoComplete={props.autoComplete}
+                    autoFocus={props.autofocus}
+            />
     </div>
   );
 };
