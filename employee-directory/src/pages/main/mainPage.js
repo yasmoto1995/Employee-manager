@@ -23,20 +23,6 @@ const Main = () => {
     getData();
   }, []);
 
-  const refreshFnc = () => {
-    async function getData() {
-      const response = await fetch(`${baseUrl}`, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-      });
-
-      const newData = await response.json();
-      setData(newData.result);
-    }
-
-    getData();
-  };
-
   const paginationHandlers = (range) => {
     setData(updatedData.slice(range[0], range[1]));
   };
@@ -70,7 +56,7 @@ const Main = () => {
           pagFnc={paginationHandlers}
           searchFnc={searchHandler}
           data={updatedData}
-          refreshFnc={refreshFnc}
+          fullData={fullData}
         ></SortBar>
       </Container>
       <Container fluid>

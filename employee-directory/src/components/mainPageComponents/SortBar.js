@@ -34,7 +34,7 @@ const SortBar = (props) => {
         <Pagination>{items}</Pagination>
       </div>
       <div className="search-container">
-        <SearchBar data={props.data} fnc={props.searchFnc}></SearchBar>
+        <SearchBar data={props.fullData} fnc={props.searchFnc}></SearchBar>
       </div>
       <div className="sort-container">
         <Dropdown>
@@ -49,12 +49,6 @@ const SortBar = (props) => {
             <Dropdown.Item onClick={props.sortFnc}>Team</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <button
-          className="btn btn-primary btn-refresh"
-          onClick={props.refreshFnc}
-        >
-          Refresh Data
-        </button>
       </div>
     </div>
   );
