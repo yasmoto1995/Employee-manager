@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SortBar from "../../components/mainPageComponents/SortBar";
 import Cards from "../../components/mainPageComponents/Cards";
-//new
+
+var fullData = [];
 
 const Main = () => {
   const [updatedData, setData] = useState([]);
@@ -15,6 +16,7 @@ const Main = () => {
       });
 
       const newData = await response.json();
+      fullData = newData.result;
       setData(newData.result);
     }
 
@@ -41,13 +43,14 @@ const Main = () => {
 
   const searchHandler = (upD) => {
     setData(upD);
+    
   };
 
   const filteredData = (type) => {
     const info =
       type === "Everyone"
-        ? updatedData
-        : updatedData.filter((el) => el.role === type);
+        ? fullData
+        : fullData.filter((el) => el.role === type);
 
     return info;
   };
